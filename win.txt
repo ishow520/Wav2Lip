@@ -1,0 +1,28 @@
+
+文件下载
+① 'https://www.adrianbulat.com/downloads/python-fan/s3fd-619a316812.pth' -O 'Wav2Lip-master/face_detection/detection/sfd/s3fd.pth'
+② https://drive.google.com/uc?id=1fQtBSYEyuai9MjBOF8j7zZ4oQ9W2N64q --output 'Wav2Lip-master/checkpoints/'
+
+环境安装
+conda create -n wav2lip python=3.9
+conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
+pip install -r requirements.txt
+
+报错 tb-nightly 安装不上
+pip install tb-nightly --index-url https://pypi.org/simple
+报错 basicsr 安装不上
+pip install basicsr --index-url https://pypi.org/simple
+
+报错，TypeError: mel() takes 0 positional arguments but 2 positional arguments (and 3 keyword-only arguments) were given。xxxx 反正是这几块问题都可以从这里
+经查是librosa版本问题。原版本0.9.0，改成0.7.1后，问题解决。
+pip uninstall librosa
+pip install librosa==0.9.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install numba==0.56.4
+
+报错  [ERROR:0@51.194] global cap.cpp:645 cv::VideoWriter::open VIDEOIO(CV_IMAGES): raised OpenCV exception:
+OpenCV(4.8.0) D:\a\opencv-python\opencv-python\opencv\modules\videoio\src\cap_images.cpp:253: error: (-5:Bad argument) CAP_IMAGES: can't find starting number (in the name of file): temp/result.avi in function 'cv::icvExtractPattern'
+
+pip install opencv-python==3.4.18.65
+
+还是无法运行，怎么办：
+在外层新建一个文件夹 temp 用魔法打败魔法
