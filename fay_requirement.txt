@@ -1,0 +1,10 @@
+flask==2.1.3
+flask_sockets
+pydub
+moviepy
+pygame
+edge-tts
+websocket-client
+transformers
+pyaudio
+websocket-client-py3
